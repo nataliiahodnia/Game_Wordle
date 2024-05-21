@@ -4,3 +4,11 @@
   padding: 2rem;
   text-align: center;
 }
+
+.keyboard {
+  margin-top: 50px;
+}
+
+.keyboard button {
+  margin: 5px 3px;
+}
