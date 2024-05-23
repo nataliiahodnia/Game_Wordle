@@ -1,6 +1,6 @@
 import { range } from "../util/array";
 import { Keyboard } from "./Keyboard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const WORD_LENGTH = 5;
 const ROWS = 6;
@@ -12,7 +12,14 @@ type CellState = {
 
 type Board = CellState[][];
 
-const deepCopyBoard = (board: Board): Board => JSON.parse(JSON.stringify(board));
+const deepCopyBoard = (board: Board): Board =>
+  JSON.parse(JSON.stringify(board));
+
+const getPrevCell = (board: Board): CellState | undefined => {
+  const flatArray = board.flat();
+  const nextEmptyIndex = flatArray.findIndex((el) => el.letter === "");
+  return nextEmptyIndex > 0 ? flatArray[nextEmptyIndex - 1] : undefined;
+};
 
 const getEmptyCell = () => ({
   letter: "",
@@ -24,14 +31,43 @@ const getEmptyBoard = () =>
 export const Field = () => {
   const [board, setBoard] = useState<Board>(getEmptyBoard());
 
+  useEffect(() => {
+    const onKeydown = (e) => {
+      if (e.key === "Backspace") {
+        handleBackspace();
+      }
+      if (e.keyCode >= 65 && e.keyCode <= 98) {
+        handleBackspace(e.key);
+      }
+    };
+    document.addEventListener("keydown", onKeydown);
+    return () => {
+      document.removeEventListener("keydown", onKeydown);
+    };
+  }, [board]);
+
+  const current 
+
   const handleBackspace = () => {
-    console.log("bsp");
+    setBoard((prev) => {
+      const nextBoard = deepCopyBoard(prev);
+      const prevCell = getPrevCell(board);
+      if (prevCell) {
+        prevCell.letter = "";
+      }
+      return nextBoard;
+    });
   };
 
   const handlePressed = (letter) => {
     setBoard((prev) => {
       const nextState = deepCopyBoard(prev);
-      nextState[0][0].letter
+
+      const nextEmptyCell = nextState.flat().find((el) => el.letter === "");
+      if (nextEmptyCell) {
+        nextEmptyCell.letter = letter;
+      }
+      nextEmptyCell.letter;
       return nextState;
     });
   };
