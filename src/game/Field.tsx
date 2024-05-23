@@ -28,7 +28,7 @@ export const Field = () => {
     console.log("bsp");
   };
 
-  const handlePressed = (letter) => {
+  const handlePressed = () => {
     setBoard((prev) => {
       const nextState = deepCopyBoard(prev);
       nextState[0][0].letter
