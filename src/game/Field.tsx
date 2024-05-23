@@ -17,8 +17,7 @@ const getEmptyCell = () => ({
 });
 
 const getEmptyBoard = () =>
-  range(ROWS).map(() => range(WORD_LENGTH).map
-  (getEmptyCell));
+  range(ROWS).map(() => range(WORD_LENGTH).map(getEmptyCell));
 
 export const Field = () => {
   const [board, setBoard] = useState<Board>(getEmptyBoard());
@@ -28,7 +27,11 @@ export const Field = () => {
   };
 
   const handlePressed = (letter) => {
-    console.log(letter);
+    setBoard((prev) => {
+      const nextState = JSON.parse(JSON.stringify(prev));
+      nextState [0][0].letter = letter;
+      return nextState;
+    });
   };
 
   console.log(board);
