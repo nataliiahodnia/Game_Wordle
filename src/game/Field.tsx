@@ -10,7 +10,9 @@ type CellState = {
   variant?: "correct" | "semi-correct" | "incorrect";
 };
 
-type board = CellState[][];
+type Board = CellState[][];
+
+const deepCopyBoard = (board: Board): Board => JSON.parse(JSON.stringify(board));
 
 const getEmptyCell = () => ({
   letter: "",
@@ -28,8 +30,8 @@ export const Field = () => {
 
   const handlePressed = (letter) => {
     setBoard((prev) => {
-      const nextState = JSON.parse(JSON.stringify(prev));
-      nextState [0][0].letter = letter;
+      const nextState = deepCopyBoard(prev);
+      nextState[0][0].letter
       return nextState;
     });
   };
