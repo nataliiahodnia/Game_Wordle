@@ -1,6 +1,6 @@
 import { range } from "../util/array";
 import { Keyboard } from "./Keyboard";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 const WORD_LENGTH = 5;
 const ROWS = 6;
@@ -46,7 +46,12 @@ export const Field = () => {
     };
   }, [board]);
 
-  const current 
+  const currentWord = useMemo(()=>{
+    const prevCell = getPrevCell(board)
+    console.log(prevCell)
+    return "";
+    
+  }, [board])
 
   const handleBackspace = () => {
     setBoard((prev) => {
