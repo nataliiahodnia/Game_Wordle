@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 
 const rows = ["qwertyuiop", "asdfghjkl", "zxcvbnm"];
 
