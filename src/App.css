@@ -1,4 +1,8 @@
 /* root контейнер */
+body {
+  background-color: #f6f6f6;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -23,7 +27,19 @@
 
 .keyboard button {
   margin: 5px 3px;
-  padding: 8px;
+  padding: 4px 8px;
+  color: rgb(43, 42, 42);
+  border: 1px solid #4697f4 ;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+  border: 1px solid #4697f4 ;
 }
 
 /* Стилі для дошки */
@@ -31,6 +47,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  border-radius: 10px;
+  margin-top: 20px;
 }
 
 .board-row {
@@ -38,19 +57,21 @@
 }
 
 .cell {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   margin: 5px;
-  padding: 5px;
   background-color: lightsteelblue;
   color: #242424;
-  font-size: 42px;
-  line-height: 42px;
-  text-transform: capitalize;
-  font-weight: bold;
+  font-size: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  text-transform: capitalize;
+  transition: background-color 0.3s, transform 0.2s;
+  border: 1px solid #4697f4 ;
 }
 
 /* Стилі для правильності */
