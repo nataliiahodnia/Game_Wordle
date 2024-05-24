@@ -21,7 +21,7 @@ export const Keyboard = ({ onBackspace, onPressed, letterClasses }) => (
       ))}
     </div>
     <div>
-      <button onClick={() => onBackspace()}>Backspace</button>
+      <button className="backspace" onClick={() => onBackspace()}>Backspace</button>
     </div>
   </div>
 );
