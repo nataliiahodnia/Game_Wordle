@@ -1,21 +1,32 @@
+/* root контейнер */
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  /* background-color: #f0f0f0; */
 }
 
+/* Стилі для App */
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; 
+}
+
+/* Стилі для клавіатури */
 .keyboard {
   margin-top: 50px;
 }
 
 .keyboard button {
-  all: unset;
   margin: 5px 3px;
   padding: 8px;
-  background-color: lightgoldenrodyellow;
 }
 
+/* Стилі для дошки */
 .board {
   display: flex;
   flex-direction: column;
@@ -25,6 +36,7 @@
 .board-row {
   display: flex;
 }
+
 .cell {
   width: 40px;
   height: 40px;
@@ -36,9 +48,12 @@
   line-height: 42px;
   text-transform: capitalize;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* For both button and field cell */
+/* Стилі для правильності */
 .semi-correct {
   background-color: lightgoldenrodyellow;
 }

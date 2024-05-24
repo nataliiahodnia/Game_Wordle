@@ -3,7 +3,7 @@ import { Field } from "./game/Field";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <Field />
     </div>
   );
